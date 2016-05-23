@@ -1,0 +1,27 @@
+SQLshout is a shoutcast compatible streaming source application which uses a MySQL database for playlist management.
+The application is designed to be used in conjunction with a PHP Nuke module such that web site users can request
+songs, vote on songs, and the admin can manage the playlist queue.
+
+If you want to help debug the code, set the environment variable CPPFLAGS before running configure and run configure 
+as follows:
+
+In BASH
+
+export CPPFLAGS="-DDEBUG"
+./configure --enable-debug <other options>
+
+In CSH
+
+set CPPFLAGS="-DDEBUG"
+./configure --enable-debug <other options>
+
+The -DDEBUG flag will turn on lots of extra debugging messages, so you may want to redirect STDERR to a text file.
+
+To install the PHPNuke module and add the table defs to the database:
+
+cd nuke/
+./install_nuke_mods.sh
+
+You will be prompted for various information about your setup, and a sqlshout config file will be generated.
+
+Enjoy!!!

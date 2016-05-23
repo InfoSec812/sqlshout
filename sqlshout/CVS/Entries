@@ -1,0 +1,17 @@
+/.cvsignore/1.1.1.1/Wed Jan 21 20:17:12 2004//
+/Makefile.am/1.6/Sat Jul 17 16:38:32 2004//
+/Makefile.in/1.16/Sat Jul 17 16:38:32 2004//
+/main.c/1.33/Fri Sep  3 01:29:02 2004//
+/metadata.c/1.10/Sun Jun 20 22:16:34 2004//
+/metadata.h/1.3/Tue Jun  8 00:10:06 2004//
+/mysql.c/1.17/Sat Jul 17 16:38:32 2004//
+/mysql.h/1.4/Tue Jun  8 00:10:06 2004//
+/network.c/1.2/Thu Jun 24 10:19:45 2004//
+/network.h/1.1/Tue Jun 22 02:08:20 2004//
+/reencode.c/1.20/Sat Jul 17 16:38:32 2004//
+/reencode.h/1.5/Wed Jun  9 02:06:35 2004//
+/types.h/1.14/Sat Jul 17 16:38:32 2004//
+/utils.c/1.5/Sat Jul 17 16:38:32 2004//
+/utils.h/1.4/Thu Jun 24 10:19:45 2004//
+D/docs////
+D/templates////

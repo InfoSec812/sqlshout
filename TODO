@@ -1,0 +1,6 @@
+ * Migrate to database abstraction (ODBC, Modules, etc...)
+
+ * Thread the code so that the Queries run while the current song is playing, and then the main function
+   blocks waiting for the stream_mpeg() function to return.
+
+ * Add OggVorbis support to the streaming functions

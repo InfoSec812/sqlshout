@@ -1,0 +1,52 @@
+-- MySQL dump 9.07
+--
+-- Host: localhost    Database: gothic
+---------------------------------------------------------
+-- Server version	4.0.11a-gamma
+
+--
+-- Table structure for table 'nuke_music_playlist'
+--
+
+CREATE TABLE nuke_music_playlist (
+  songidx int(11) NOT NULL auto_increment,
+  filename varchar(100) NOT NULL default '',
+  title varchar(40) default NULL,
+  artist varchar(40) default NULL,
+  rating int(11) default NULL,
+  ip_address varchar(40) default NULL,
+  original tinyint(1) NOT NULL default '0',
+  bad tinyint(1) NOT NULL default '0',
+  markfordelete tinyint(1) NOT NULL default '0',
+  last date default NULL,
+  label varchar(20) default 'gemm',
+  purchaseurl text,
+  PRIMARY KEY  (songidx)
+) TYPE=MyISAM;
+
+--
+-- Table structure for table 'nuke_music_queue'
+--
+
+CREATE TABLE nuke_music_queue (
+  ratingidx int(11) NOT NULL auto_increment,
+  song int(11) default NULL,
+  rating int(11) default NULL,
+  request tinyint(1) NOT NULL default '0',
+  requested varchar(20) default NULL,
+  requesttime date default NULL,
+  PRIMARY KEY  (ratingidx)
+) TYPE=MyISAM;
+
+--
+-- Table structure for table 'nuke_music_recent'
+--
+
+CREATE TABLE nuke_music_recent (
+  recentidx int(11) NOT NULL auto_increment,
+  song int(11) default NULL,
+  requested varchar(20) default NULL,
+  requesttime datetime default '0000-00-00 00:00:00',
+  PRIMARY KEY  (recentidx)
+) TYPE=MyISAM;
+

@@ -1,0 +1,40 @@
+#!/usr/bin/php-cgi -q
+
+<?
+
+echo "Input Directory: $argv[1]\n" ;
+echo "Output Directory: $argv[2]\n" ;
+
+if (isset($argv[3])) {
+	$append = " | grep $argv[3]" ;
+} else {
+	$append = "" ;
+}
+
+$dbptr = mysql_connect("127.0.0.1","dbuser","dbpass") ;
+mysql_select_db("dbname",$dbptr) ;
+
+$listing = array("one","two") ;
+$x=0 ;
+
+$dir = opendir($argv[1]) ;
+
+while ($listing[$x] = readdir($dir)) {
+	if (substr($listing[$x],-4) == ".mp3") {
+		$inmp3 = $argv[1] . "/" . str_replace(" ","\ ",str_replace("(","\(",str_replace(")","\)",str_replace("[","\[",str_replace("]","\]",str_replace("&","\&",str_replace("'","\'",addslashes($listing[$x])))))))) ;
+		$outmp3 = $argv[2] . "/" . str_replace(" ","_",str_replace("[","(",str_replace("]",")",str_replace("&","And",str_replace("'","",addslashes($listing[$x])))))) ;
+
+		list($title,$artist) = explode("\n",`ogginfo $inmp3 | grep = | grep -v transcod | awk -F"=" '{print $2}'`) ;
+		$query = "INSERT INTO nuke_music_playlist (filename,rating,artist,title,original,label,purchaseurl) VALUES ('$outmp3','0','" . addslashes($artist) . "','" . addslashes($title) . "','t','gemm','http://dspair.gemm.com/q.cgi?')" ;
+		$temp = $argv[1] . "/" . $listing[$x] ;
+		rename($temp,$outmp3) ;
+		if (!mysql_query($query)) {
+			echo "\n\n\nQUERY: $query\n" ;
+			echo mysql_error() . "\n\n" ;
+		}
+#		echo "$query ;\n" ;
+	}
+}
+
+?>
+

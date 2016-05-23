@@ -1,0 +1,4 @@
+Deven Phillips <dphillips@gothic-hawaii.com>	- Main program logic, original concept
+Alexander Leidinger <Alexander@Leidinger.net> 	- Assistance with LAME encoder and libmad decoding
+Bertrand Petit <madlldatphoedotfrmugdotorg >	- MAD decoder loop from madlld http://www.bsd-dk.dk/~elrond/audio/madlld
+Ben (a.k.a. digiobi on Undernet)		- Help with GNU strings, libm, and general debugging

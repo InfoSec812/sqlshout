@@ -1,0 +1,27 @@
+Version 1.2 -> 1.5
+	* Added a large number of NULL pointer checks.
+	* Added lots and lots of error trapping.
+	* Made the program threaded in anticipation of crossfade option.
+	* Fixed all known concurrency issues in the threaded code.
+
+Version 1.0 -> 1.2
+	* Added a portable daemonize() function to handle placing the program in the background and release
+		the controlling terminal
+	* Changed the update_playlist() function to only keep NOREPEAT songs in the recent table
+	* Added code to the reencoder to add ID3 tags to the stream to account for ShoutCast servers
+
+Version 0.8 -> 1.0
+	* Fixed the intermittant segfaults and cleaned up a great deal of the code.
+	* Changed lame_encode_flush() to lame_encode_finish() because I realized that I wasn't cleaning up after lame.
+
+Version 0.05 -> 0.8
+	* Changed a lot of the memory management code, especially in the mysql.c code
+	* Added shoutcast metadata
+	* Cleaned up the code quite a bit
+	* Repaired numerous buffer overflows
+
+Version 0.04 -> 0.05
+	* Fixed dropouts in the stream by changing some of the LAME configurations to use 0 padding
+	* Added stream title/url headers
+	* Modified the shout calls to use shout_send_raw instead of shout_send for better error control
+	* Added more debugging output for better error resolution
